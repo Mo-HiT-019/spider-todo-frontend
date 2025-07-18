@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "../api/axiosInstance";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../redux/slices/userSlice";
+
 
 const TodoPage = () => {
   const [todos, setTodos] = useState([]);
   const [form, setForm] = useState({ title: "", description: "" });
   const [editId, setEditId] = useState(null);
   const navigate = useNavigate();
+
+  const dispatch= useDispatch()
 
   const fetchTodos = async () => {
     const res = await axios.get("/todos");
@@ -50,6 +55,8 @@ const TodoPage = () => {
   const handleLogout = async () => {
     await axios.post("/auth/logout");
     document.cookie = "token=; Max-Age=0";
+    dispatch(logoutUser())
+
     navigate("/login");
   };
 
