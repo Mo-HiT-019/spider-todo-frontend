@@ -3,6 +3,7 @@ import axios from "../api/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../redux/slices/userSlice";
+import { useSelector } from "react-redux";
 
 
 const TodoPage = () => {
@@ -10,6 +11,8 @@ const TodoPage = () => {
   const [form, setForm] = useState({ title: "", description: "" });
   const [editId, setEditId] = useState(null);
   const navigate = useNavigate();
+
+  const currentUser = useSelector((state) => state.user.currentUser);
 
   const dispatch= useDispatch()
 
@@ -66,9 +69,9 @@ const TodoPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-4">
-      <div className="max-w-xl mx-auto bg-gray-800 rounded-lg shadow-lg p-6 space-y-6">
+      <div className="max-w-xl mx-auto bg-black rounded-lg shadow-lg p-6 space-y-6">
         <div className="flex justify-between items-center pb-4 border-b border-gray-700">
-          <h1 className="text-3xl font-extrabold text-white">My Todos</h1>
+          <h1 className="text-3xl font-extrabold text-white">{`${currentUser.username}'s Todos`}</h1>
           <button
             className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition duration-300 ease-in-out"
             onClick={handleLogout}
@@ -98,7 +101,7 @@ const TodoPage = () => {
           <div className="flex gap-4">
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-md w-full transition duration-300 ease-in-out"
+              className="bg-yellow-700 hover:bg-yellow-800 text-white font-bold py-3 rounded-md w-full transition duration-300 ease-in-out"
             >
               {editId ? "Update Todo" : "Add Todo"}
             </button>

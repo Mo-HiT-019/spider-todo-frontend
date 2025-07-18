@@ -1,11 +1,14 @@
-import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const PublicRoute = ({ children }) => {
-  const user = useSelector((state) => state.user.user);
-  console.log("User from publicroute",user)
+  const currentUser = useSelector((state) => state.user.currentUser);
 
-  return user ? <Navigate to="/" replace /> : children;
+  if (currentUser) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
 };
 
 export default PublicRoute;

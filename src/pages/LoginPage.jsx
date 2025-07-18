@@ -25,7 +25,7 @@ const LoginPage = () => {
     <div className="flex justify-center items-center h-screen bg-gray-900">
       <form
         onSubmit={handleSubmit}
-        className="p-8 bg-gray-800 rounded shadow-lg space-y-6 w-96"
+        className="p-8 bg-black rounded shadow-lg space-y-6 w-96"
       >
         <h2 className="text-3xl font-extrabold text-white text-center">Login</h2>
         <input
@@ -42,7 +42,7 @@ const LoginPage = () => {
           onChange={(e) => setForm({ ...form, password: e.target.value })}
           className="border border-gray-600 bg-gray-700 text-white p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 w-full rounded-md transition duration-300 ease-in-out">
+        <button className="bg-yellow-700 hover:bg-yellow-800 text-white font-bold py-3 w-full rounded-md transition duration-300 ease-in-out">
           Login
         </button>
         <div className="text-center text-gray-400 text-sm">
