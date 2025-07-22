@@ -4,7 +4,8 @@ import LoginPage from "./pages/LoginPage";
 import TodoPage from "./pages/TodoPage";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import PublicRoute from "./components/PublicRoutes";
-
+import AssignedTasksPage from "./pages/AssignedTaskPage";
+import AssignTaskPage from "./pages/AssignTask";
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,8 @@ function App() {
             </ProtectedRoutes>
           }
         />
+        <Route path='/assigned' element={<ProtectedRoutes> <AssignedTasksPage/> </ProtectedRoutes>}/>
+        <Route path='/assign' element={<ProtectedRoutes> <AssignTaskPage/> </ProtectedRoutes>}/>
       </Routes>
     </BrowserRouter>
   );

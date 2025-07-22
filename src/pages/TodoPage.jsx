@@ -156,6 +156,20 @@ const TodoPage = () => {
             </li>
           ))}
         </ul>
+
+        <button
+            className="bg-green-800 hover:bg-red-700 text-white px-4 py-2 rounded-md transition duration-300 ease-in-out"
+            onClick={()=>navigate('/assign')}
+          >
+            Assign Task +
+        </button>
+
+        <button
+            className="bg-blue-700 hover:bg-red-700 text-white ml-2 px-4 py-2 rounded-md transition duration-300 ease-in-out"
+            onClick={()=>navigate('/assigned')}
+          >
+            Assigned Tasks
+        </button>
       </div>
     </div>
   );
